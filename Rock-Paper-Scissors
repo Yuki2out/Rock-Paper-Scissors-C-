@@ -1,0 +1,37 @@
+Console.WriteLine("Choice a move (R)ock , (P)aper , (S)cissors");
+string playeMove = Console.ReadLine();
+
+Random random = new Random();
+int computerMove = random.Next(1, 4);
+string computerMoveName = "";
+
+switch (computerMove)
+{
+    case 1:
+        computerMoveName = "rock";
+        break;
+    case 2:
+        computerMoveName = "paper";
+        break;
+    case 3:
+        computerMoveName = "scissors";
+        break;
+    default:
+        Console.WriteLine("Error");
+        break;
+}
+
+Console.WriteLine($"Computer chose {computerMoveName}.");
+
+if (computerMoveName == "rock" && playeMove == "P" || computerMoveName == "paper" && playeMove == "S" || playeMove == "P" && computerMoveName == "rock")
+{
+    Console.WriteLine("You win!!");
+}
+else if (computerMoveName == playeMove)
+{
+    Console.WriteLine("It's a tie!");
+}
+else
+{
+    Console.WriteLine("Computer wins!");
+}
